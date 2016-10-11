@@ -1,0 +1,101 @@
+/*
+	
+	本文件用于信息显示页面相关样式设置
+	
+*/
+
+/* 信息显示表格 */
+.container_info{
+	margin: auto;
+	font-size: 12px;
+	text-align: center; 
+	width: 80%;
+	border-collapse: collapse;
+	line-height: 26px;
+	margin-top: 30px;
+	margin-right: 30px;
+}
+
+/* 信息显示表格  表头(信息) */
+.container_info thead td{
+	border-bottom: 1px solid silver;
+	line-height: 30px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+/* 信息显示表格   每行信息值显示底边位银色*/
+.container_info tbody td{
+	border-bottom: 1px solid silver;			
+}
+
+/* 信息显示表格   最左侧编号 td*/
+.container_info tr td:FIRST-CHILD {
+	font-weight: bold;
+	font-size: 13px;
+	text-align: left;
+}
+
+/* 信息显示表格   信息显示光标浮动*/
+.container_info tr:HOVER {
+	background-color: #eeffcc;
+}
+
+/* 信息显示表格   按钮基本样式*/
+.bt_delete,
+.bt_info{
+	border: 0px;
+	background-color: transparent;
+}
+
+/* 信息显示表格   按钮光标浮动  */
+.container_info button:HOVER{
+	color: #6188AE;
+}
+
+/* 右上角四分之一圆 样式 */
+.bt_insert{
+	background-color: AACCE5;
+  	width: 60px;
+  	height: 60px;
+  	float: right;
+  	margin-top: -26px;
+  	margin-right: -5px;
+  	border-radius:0px 6px 0px 60px;
+  	text-align: center;
+}
+/* 右上角四分之一圆 内部按钮样式 */
+.bt_insert button{
+	border: 0px;
+	color: #ffffff;
+	background-color: transparent;
+	margin: auto;
+	margin-top: 15px;
+	font-weight: bold;
+}
+
+/* 右上角四分之一圆 光标浮动样式*/
+.bt_insert:HOVER {
+	background-color:  #6188AE;
+}	
+
+/* 分页工具栏样式*/
+.toolbar_1{
+	text-align: center;
+	margin-top: 30px;
+}
+
+/* 分页工具栏按钮样式*/
+.toolbar_1 button{
+	border: 0px;
+	background-color: #6188AE;
+	color: #ffffff;
+	width: 80px;
+	height: 30px;
+	border-radius: 3px 3px 3px 3px;
+}
+
+/* 分页工具栏光标浮动样式*/
+.toolbar_1 button:HOVER {
+	box-shadow: 0px 0px 2px black;
+}

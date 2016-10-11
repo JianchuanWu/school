@@ -1,0 +1,98 @@
+/*
+
+	主页面样式设置
+
+*/
+
+/* 中心布局表格 */
+#container{
+	margin: auto;
+	width: 1000px;
+	height: 550px;
+	border: 1px solid #6188AE;
+	border-radius:6px;
+	background-color: #6188AE;
+}
+
+/* td圆角 */
+td{
+	border-radius:6px;
+}
+
+/* 系统logo */
+#logo1{
+	width: 100px;
+	height: 95px;
+	background-image: url("../imgs/school.jpg");
+	margin: auto;
+	margin-top: 20px;
+	background-size:100px 95px;
+	border-radius:60px;
+	box-shadow:0px 0px 6px #ffffff;
+}
+
+/* 左侧工具栏  */
+.left{
+	width: 150px;
+	background-color: #6188AE;
+	text-align: center;
+	vertical-align: top;
+	border-radius:0px 66px 0px 0px;
+	box-shadow:2px -2px 2px black;
+	border: 0px;
+}
+
+/* 左侧工具栏按钮区(xx信息管理) */
+.menu1{
+	width: 100px;
+	background-color: #ffffff;
+	margin: auto;
+	margin-top: 20px;
+	border: 2px solid #ffffff;
+	border-radius:9px;
+}
+
+/* 左侧工具栏按钮区标题 */
+.menu_head{
+	background-color: #6188AE;
+	color: #ffffff;
+	line-height: 26px;
+	font-size: 13px;
+	border-radius:9px 9px 0px 0px;
+	
+}
+
+/* 左侧工具栏 按钮区选项按钮 */
+.menu1 button{
+	background-color: transparent;
+	border: 0px;
+	width: 99%;
+	border-bottom: 1px #6188AE solid;
+	line-height: 30px;
+}
+
+/* 选项按钮的光标浮动 */
+.menu1 button:HOVER{
+	color: #6188AE;
+}
+
+/* 选项按钮图标div */
+.menu1 button div{
+	width: 25px;
+	height: 25px;
+	border: 1px solid blue;
+	float: left;
+	background-size:25px 25px; 
+	border: 0px;
+}
+
+/* 系统大标题(SHOOL MANAGER) */
+.logotext{
+	font-size: 36px;
+	letter-spacing:2px;
+	color: #ffffff;
+	font-family: fantasy;
+	text-align: right;
+	padding-right: 100px;
+	text-transform: uppercase;
+}

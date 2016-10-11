@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index.html</title>
+	
+	<meta charset="utf-8">
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <link rel="stylesheet" type="text/css" href="/school/syscss/main.css">
+	<script type="text/javascript" src="/school/sysjs/jquery-2.1.1.min.js"></script>
+	
+  </head>
+  
+  <body>
+    <table id="container">
+    	<tr>
+    		
+    		<td rowspan="2" class="left">
+    			<div id="logo1"></div>
+    			<div class="menu1">
+    				
+    				<div class="menu_head">
+    					信息管理
+    				</div>
+    				
+   					<form action="" target="show_area" method="post">
+   	
+	    				<button url="/school/act/teacherAction/getInfo">
+	    					<div style="background-image: url('/school/imgs/teacher.png');"></div>教师信息
+	    				</button>
+	    				<button url="/school/act/classinfoAction/getInfo">
+	    					<div style="background-image: url('/school/imgs/class.png');"></div>班级信息
+	    				</button>
+	    				<button url="/school/act/studentAction/getInfo">
+	    					<div style="background-image: url('/school/imgs/student.png');"></div>学生信息
+	    				</button>
+	    				<button url="/school/act/subjectInfoAction/getInfo">
+	    					<div style="background-image: url('/school/imgs/subject.png');"></div>科目信息
+	    				</button>
+	    				<button style="border: 0px;">
+	    					<div style="background-image: url('/school/imgs/studentCard.png');"></div>证件信息
+	    				</button>
+    				
+    					<input type="hidden" value="1" name="pageNum"/>
+    				
+   					</form>
+   					
+    			</div>
+    			
+    			<div class="menu1">
+    				<form action="" method="post">
+    					<div class="menu_head">其他</div>
+							<button url="/school/act/logAction/exit" style="border: 0px;">
+			   					<div style="background-image: url('/school/imgs/logout.png');"></div>
+			   					安全退出
+			   				</button>
+		   				<br>
+    				</form>
+    			</div>
+    			
+    		</td>
+   		
+    		<td style="height: 110px;">
+				<div class="logotext">School Manager</div>
+			</td>
+    	</tr>
+    	
+    	<tr>
+    		<td style="border-radius:0px 6px 6px 0px;
+    		background-image: url('/school/imgs/school.jpg');
+    		background-size: 650px 600px;
+    		background-position: 100px -80px;
+    		height: 445px;
+    		">
+    			<iframe scrolling="no" name="show_area" 
+		    			style="width: 100%;
+		    			height: 100%;
+		    			border: 0px;
+		    			background-color: #ffffff;
+		    			opacity:0.9;
+		    			border-radius: 6px; "></iframe>
+    			
+    		</td>
+    	</tr>
+    </table>
+  </body>
+  
+  
+  <script type="text/javascript">
+  	(function(){
+  		$("").ready(function(){
+  			$(".menu1 button").click(function(){
+  				$(this).parents("form").attr("action",$(this).attr("url"));
+  			});
+  		});
+  	})();
+  </script>
+  
+</html>

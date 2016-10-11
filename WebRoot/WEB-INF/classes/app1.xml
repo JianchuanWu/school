@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.1.xsd
+						http://www.springframework.org/schema/util
+						http://www.springframework.org/schema/util/spring-util-3.1.xsd
+						http://www.springframework.org/schema/tx
+						http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+						">
+
+
+	
+	<!-- 用注解方式 -->
+	<context:annotation-config></context:annotation-config>
+	
+	<!-- 自动扫描并注入Bean -->
+	<context:component-scan base-package="org.school" use-default-filters="true" ></context:component-scan>
+	
+	<!-- 与ModelService中的daoMap相对应，用了注解@Resource(name="daoMap") -->
+	<util:map id="daoMap" map-class="java.util.HashMap">
+		<entry key="classinfoDAO" value-ref="classinfoDAO"></entry>
+		<entry key="studentCardDAO" value-ref="studentCardDAO"></entry>
+		<entry key="studentDAO" value-ref="studentDAO"></entry>
+		<entry key="studentSubjectDAO" value-ref="studentSubjectDAO"></entry>
+		<entry key="subjectinfoDAO" value-ref="subjectinfoDAO"></entry>
+		<entry key="teacherDAO" value-ref="teacherDAO"></entry>
+		<entry key="userinfoDAO" value-ref="userinfoDAO"></entry>
+		<entry key="userLogInfoDAO" value-ref="userLogInfoDAO"></entry>
+	</util:map>
+	
+	<!-- 开启事务注解功能 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 配置事务容器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory"
+	></bean>
+
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl"
+			value="jdbc:mysql://127.0.0.1:3306/school">
+		</property>
+		<property name="user" value="root"></property>
+		<property name="password" value="root"></property>
+		<property name="maxPoolSize" value="200"></property>
+		<property name="minPoolSize" value="50"></property>
+		<property name="initialPoolSize" value="100"></property>
+		<property name="maxIdleTime" value="1000"></property>
+	</bean>
+	
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>
+					org/school/hb/entities/StudentSubject.hbm.xml
+				</value>
+				<value>org/school/hb/entities/Teacher.hbm.xml</value>
+				<value>
+					org/school/hb/entities/Subjectinfo.hbm.xml
+				</value>
+				<value>org/school/hb/entities/Classinfo.hbm.xml</value>
+				<value>
+					org/school/hb/entities/Studentcard.hbm.xml
+				</value>
+				<value>org/school/hb/entities/Student.hbm.xml</value>
+				<value>org/school/hb/entities/Userinfo.hbm.xml</value>
+				<value>
+					org/school/hb/entities/Userloginfo.hbm.xml
+				</value></list>
+		</property></bean></beans>
